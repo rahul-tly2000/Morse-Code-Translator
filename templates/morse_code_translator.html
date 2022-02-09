@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Morse Code Translator</title>
+</head>
+<body>
+    <div class="translator">
+        <h2>Morse Code Translator</h2>
+        <div class="layer-2">
+            <form action="" method="post">
+                <div class="form-group">
+                    <label class="sub_head">Translate a Message</label>
+                    {% if msg == None %}
+                    <input type="text" name="message" placeholder="enter a message to translate into morse code" class="form-control msg">
+                    {% else %}
+                    <input type="text" name="message" placeholder="enter a message to translate into morse code" value="{{msg}}" class="form-control msg">
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Translate</button>
+                </div>
+              
+                <div class="result">
+                    <label>{{ result }}</label>
+                </div>
+                
+            </form>
+            <div class="bottom_msg">
+                <h4>Text to Morse</h4> 
+                <p>Just type letters, numbers and punctuation into the top box and the Morse code will appear in the bottom box with a "#" if the character cannot be translated.</p>
+            </div>
+            
+        </div>
+        
+    </div>
+    
+</body>
+</html>
